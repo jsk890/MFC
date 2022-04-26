@@ -17,6 +17,8 @@
 
 
 
+
+
 CMFCWindowDlg::CMFCWindowDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFCWINDOW_DIALOG, pParent)
 {
@@ -86,3 +88,33 @@ HCURSOR CMFCWindowDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+LRESULT CMFCWindowDlg::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
+{
+	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+	if (message == WM_LBUTTONDOWN) {
+
+		//Win32
+		HDC h_dc = ::GetDC(m_hWnd);
+		Rectangle(h_dc, 10, 10, 100, 100);
+		::ReleaseDC(m_hWnd, h_dc);
+
+		//MFC
+		CDC *p_dc = GetDC();
+		p_dc -> Rectangle(10, 10, 100, 100);
+		ReleaseDC(p_dc);
+
+		//완화
+		//이 대화상자에 그림을 그릴 수 있는 dc를 구성해서 클래스가 가지게 됨
+		CClientDC dc(this);
+		dc.Rectangle(10, 10, 100, 100);
+
+		//컨트롤 키를 눌렸을 경우 사각형안에 내적하는 원 그리기
+		if (wParam & MK_CONTROL)
+			dc.Ellipse(10, 10, 100, 100);
+	}
+
+
+	return CDialogEx::WindowProc(message, wParam, lParam);
+}

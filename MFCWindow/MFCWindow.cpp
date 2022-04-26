@@ -19,6 +19,9 @@ BEGIN_MESSAGE_MAP(CMFCWindowApp, CWinApp)
 END_MESSAGE_MAP()
 
 
+
+
+
 // CMFCWindowApp 생성
 
 CMFCWindowApp::CMFCWindowApp()
