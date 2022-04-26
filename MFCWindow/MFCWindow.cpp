@@ -20,8 +20,6 @@ END_MESSAGE_MAP()
 
 
 
-
-
 // CMFCWindowApp 생성
 
 CMFCWindowApp::CMFCWindowApp()

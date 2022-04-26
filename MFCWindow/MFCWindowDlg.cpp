@@ -15,10 +15,6 @@
 
 // CMFCWindowDlg 대화 상자
 
-
-
-
-
 CMFCWindowDlg::CMFCWindowDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_MFCWINDOW_DIALOG, pParent)
 {
