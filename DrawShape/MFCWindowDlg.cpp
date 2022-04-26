@@ -26,9 +26,11 @@ void CMFCWindowDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 }
 
+//매크로 함수
 BEGIN_MESSAGE_MAP(CMFCWindowDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 
 
@@ -83,13 +85,22 @@ HCURSOR CMFCWindowDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
-
+/*
 
 LRESULT CMFCWindowDlg::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 {
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 	if (message == WM_LBUTTONDOWN) {
+		CClientDC dc(this);
 
+		//마우스 좌표값을 가져온다
+		int x = LOWORD(lParam); // 하위 16비트 값 분리
+		int y = HIWORD(lParam); // 상위 16비트 값 분리
+
+		if (wParam & MK_CONTROL) dc.Ellipse(x - 50, y - 50, x + 50, y + 50);
+		else dc.Rectangle(x - 50, y - 50, x + 50, y + 50);
+
+		
 		//Win32
 		HDC h_dc = ::GetDC(m_hWnd);
 		Rectangle(h_dc, 10, 10, 100, 100);
@@ -102,14 +113,31 @@ LRESULT CMFCWindowDlg::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 
 		//완화
 		//이 대화상자에 그림을 그릴 수 있는 dc를 구성해서 클래스가 가지게 됨
-		CClientDC dc(this);
-		dc.Rectangle(10, 10, 100, 100);
+		CClientDC cdc(this);
+		cdc.Rectangle(10, 10, 100, 100);
 
 		//컨트롤 키를 눌렸을 경우 사각형안에 내적하는 원 그리기
 		if (wParam & MK_CONTROL)
-			dc.Ellipse(10, 10, 100, 100);
+			cdc.Ellipse(10, 10, 100, 100);
+			
 	}
 
-
 	return CDialogEx::WindowProc(message, wParam, lParam);
+}
+	*/
+
+
+void CMFCWindowDlg::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	// nFlags : wParam
+	// point : 좌표값
+
+	CClientDC dc(this);
+
+
+	if (nFlags & MK_CONTROL) dc.Ellipse(point.x - 50, point.y - 50, point.x + 50, point.y + 50);
+	else dc.Rectangle(point.x - 50, point.y - 50, point.x + 50, point.y + 50);
+
+	CDialogEx::OnLButtonDown(nFlags, point);
 }
