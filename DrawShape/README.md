@@ -6,3 +6,5 @@
 
 2. Ctrl + Click
 > * 원
+
+![cap1](https://user-images.githubusercontent.com/55019081/165255831-c1c9bdd4-272a-4630-b370-f1b0e42458d3.GIF)
