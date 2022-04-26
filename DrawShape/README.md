@@ -1,2 +1,11 @@
-# MFC
-MFC (Microsoft foundation class) for Win32 Programing
+# 도형그리기
+
+클라이언트 영역 클릭 시
+특정 지점에 다음의 도형 그리기
+사각형
+
+Ctrl 키와 함께 클릭시 다음의 도형 그리기
+원
+
+
+
