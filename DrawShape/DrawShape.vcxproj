@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{E38342D8-4985-46FE-8A52-C2679FE58773}</ProjectGuid>
+    <ProjectGuid>{D8C36C0F-A3CA-4B79-9E71-70267AB020AF}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
     <RootNamespace>DrawShape</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
