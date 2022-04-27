@@ -9,6 +9,6 @@
 
 ![cap1](https://user-images.githubusercontent.com/55019081/165255831-c1c9bdd4-272a-4630-b370-f1b0e42458d3.GIF)
 
-3. 마우스 위치에 도형 그리기
+3. 마우스 클릭 위치에 도형 그리기
 
 ![cap2](https://user-images.githubusercontent.com/55019081/165488110-f9146cfb-0e2b-468f-a492-7cd4c7754873.GIF)
